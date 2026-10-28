@@ -1,5 +1,11 @@
-def count_text(file_path):
-    """统计文本文件字符数、单词数"""
+def count_text(file_path: str):
+    """
+    统计文本文件字符数、单词数
+    :param file_path: 文本文件路径
+    :return: dict，包含统计结果或者错误信息
+    """
+    if not isinstance(file_path, str):
+        return {"error": "invalid path type"}
     try:
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
@@ -15,5 +21,5 @@ def count_text(file_path):
 
 
 if __name__ == "__main__":
-    res = count_text("demo.txt")
-    print(res)
+    result = count_text("demo.txt")
+    print("text stats result:", result)
